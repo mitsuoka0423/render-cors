@@ -3,9 +3,15 @@ const cors = require('cors')
 const axios = require('axios');
 const app = express()
 
+const port = 20080;
+
 app.use(cors());
 
-app.get('', async function (req, res, next) {
+app.get('/', (req, res) => {
+  res.json('hello world');
+});
+
+app.get('/cors', async function (req, res, next) {
   try {
     console.log(req.query.url);
     const response = await axios.get(req.query.url);
@@ -16,6 +22,6 @@ app.get('', async function (req, res, next) {
   }
 })
 
-app.listen(80, function () {
-  console.log('CORS-enabled web server listening on port 80')
+app.listen(port, function () {
+  console.log(`CORS-enabled web server listening on port ${port}`)
 })
