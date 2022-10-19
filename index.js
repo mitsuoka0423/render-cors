@@ -25,3 +25,5 @@ app.get('/cors', async function (req, res, next) {
 app.listen(port, function () {
   console.log(`CORS-enabled web server listening on port ${port}`)
 })
+
+export default app;
